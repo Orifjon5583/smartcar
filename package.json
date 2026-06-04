@@ -1,0 +1,14 @@
+{
+  "name": "voice-robot-car",
+  "version": "1.0.0",
+  "description": "Telefon orqali ovoz va tugmalar bilan ESP32 robot mashinani boshqarish sayti",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "cert": "node scripts/generate-cert.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3",
+    "selfsigned": "^2.4.1"
+  }
+}

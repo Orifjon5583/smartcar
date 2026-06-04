@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Robot Mashina Boshqaruvi</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <p class="eyebrow">ESP32 Robot Car</p>
+        <h1>Ovoz va tugmalar orqali boshqaruv</h1>
+
+        <button id="speakBtn" class="speak" type="button">
+          Gapirish
+          <span>5 soniya tinglaydi</span>
+        </button>
+
+        <div class="status">
+          <p>Ovozdan kelgan matn:</p>
+          <strong id="transcript">Hali gapirilmagan</strong>
+        </div>
+
+        <div class="status compact">
+          <p>Oxirgi buyruq:</p>
+          <strong id="lastCommand">-</strong>
+        </div>
+
+        <p id="message" class="message"></p>
+
+        <div class="controls" aria-label="Robot boshqaruv tugmalari">
+          <button data-command="oldinga" class="control up" type="button">Oldinga</button>
+          <button data-command="chapga" class="control left" type="button">Chapga</button>
+          <button data-command="toxta" class="control stop" type="button">To'xta</button>
+          <button data-command="ongga" class="control right" type="button">O'ngga</button>
+          <button data-command="orqaga" class="control down" type="button">Orqaga</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
