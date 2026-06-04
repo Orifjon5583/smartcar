@@ -7,9 +7,18 @@ const app = express();
 const PORT = process.env.PORT || 3443;
 const HOST = process.env.HOST || "0.0.0.0";
 const allowedCommands = new Set(["oldinga", "orqaga", "chapga", "ongga", "toxta"]);
+const commandButtons = [
+  { command: "oldinga", label: "Oldinga", className: "up" },
+  { command: "chapga", label: "Chapga", className: "left" },
+  { command: "toxta", label: "To'xta", className: "stop" },
+  { command: "ongga", label: "O'ngga", className: "right" },
+  { command: "orqaga", label: "Orqaga", className: "down" }
+];
 
 let oxirgiCommand = "";
 
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -35,7 +44,11 @@ function findCommand(text) {
 }
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.render("index", {
+    title: "Robot Mashina Boshqaruvi",
+    lastCommand: oxirgiCommand || "-",
+    commandButtons
+  });
 });
 
 app.post("/command", (req, res) => {

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <p class="eyebrow">ESP32 Robot Car</p>
+        <h1>Ovoz va tugmalar orqali boshqaruv</h1>
+
+        <button id="speakBtn" class="speak" type="button">
+          Gapirish
+          <span>5 soniya tinglaydi</span>
+        </button>
+
+        <div class="status">
+          <p>Ovozdan kelgan matn:</p>
+          <strong id="transcript">Hali gapirilmagan</strong>
+        </div>
+
+        <div class="status compact">
+          <p>Oxirgi buyruq:</p>
+          <strong id="lastCommand"><%= lastCommand %></strong>
+        </div>
+
+        <p id="message" class="message"></p>
+
+        <div class="controls" aria-label="Robot boshqaruv tugmalari">
+          <% commandButtons.forEach((item) => { %>
+            <button data-command="<%= item.command %>" class="control <%= item.className %>" type="button">
+              <%= item.label %>
+            </button>
+          <% }) %>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
